@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КіберЩит: Симулятор Анти-Шахрайства</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">🛡️ КіберЩит.gg</div>
+        <nav>
+            <button class="nav-btn active" data-tab="simulator">Симулятор</button>
+            <button class="nav-btn" data-tab="theory">База знань</button>
+            <button class="nav-btn" data-tab="stats">Статистика</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="simulator" class="tab-content active">
+            <div class="card">
+                <h2>Випробуй свій антивірус у голові</h2>
+                <p>Тобі надходять життєві ситуації. Вирішуй: це пастка шахраїв чи безпечно?</p>
+                
+                <div id="scenario-box" class="scenario-box">
+                    <span id="scenario-category" class="badge">Категорія</span>
+                    <p id="scenario-text" class="scenario-text">Завантаження сценарію...</p>
+                    
+                    <div class="choices">
+                        <button id="btn-scam" class="action-btn danger">🚨 Це шахраї!</button>
+                        <button id="btn-safe" class="action-btn success">✅ Безпечно</button>
+                    </div>
+                </div>
+
+                <div id="feedback-box" class="feedback-box hidden">
+                    <h3 id="feedback-title">Результат</h3>
+                    <p id="feedback-text"></p>
+                    <button id="next-btn" class="action-btn primary">Наступний кейс</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="theory" class="tab-content">
+            <div class="card">
+                <h2>Популярні схеми кібергастролерів</h2>
+                <div class="accordion">
+                    <div class="acc-item">
+                        <button class="acc-header">🎣 Фішинг під виглядом банків / держпослуг</button>
+                        <div class="acc-body">
+                            <p>Злочинці створюють копії сайтів відомих сервісів (наприклад, фейковий сайт держдопомоги). Мета - випитати твої реквізити картки або паролі.</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="acc-header">📦 "Посилка на OLX" через ліву ссилку</button>
+                        <div class="acc-body">
+                            <p>Покупець пише в месенджері, що вже оплатив товар і кидає посилання на "безпечну доставку", яка виявляється фішинговою сторінкою введення даних картки.</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <button class="acc-header">📞 Дзвінок "з служби безпеки банку"</button>
+                        <div class="acc-body">
+                            <p>Кажуть, що твою картку заблоковано або зафіксовано підозрілу транзакцію. Просять назвати CVV, код з SMS або пароль до додатку.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="tab-content">
+            <div class="card">
+                <h2>Твій рівень кіберстійкості</h2>
+                <div class="stats-container">
+                    <p>Пройдено кейсів: <span id="stat-total">0</span></p>
+                    <p>Правильних рішень: <span id="stat-score">0</span></p>
+                </div>
+
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #333;">
+
+                <h3>Повідомити про нову схему</h3>
+                <form id="report-form">
+                    <div class="form-group">
+                        <label for="user-email">Твоя пошта:</label>
+                        <input type="email" id="user-email" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="report-desc">Опис схеми шахрайства:</label>
+                        <textarea id="report-desc" rows="3" placeholder="Розкажи, що тобі написали..." required></textarea>
+                    </div>
+                    <button type="submit" class="action-btn primary">Надіслати на перевірку</button>
+                    <p id="form-msg" class="form-msg hidden">Дякуємо! База знань стала безпечнішою.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2026 КіберЩит. Навчальний проєкт з Front-end розробки.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
